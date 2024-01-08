@@ -10,6 +10,6 @@ public class IslandTest {
 
         IslandTest it = new IslandTest();
         it = null;
-        // ??
+        // 3
     }
 }

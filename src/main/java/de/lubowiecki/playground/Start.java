@@ -7,7 +7,7 @@ public class Start { // Klasse
 
         // x = 10;
         // x = "ABC";
-        var x = "ABC"; // Kompiler ermittelt automatisch den Typ, Ab Java 1.9 erlaubt
+        //var x = "ABC"; // Kompiler ermittelt automatisch den Typ, Ab Java 1.9 erlaubt
         // x = 10; // x ist ein String
 
         // int : Datentyp (Ganzzahl)
