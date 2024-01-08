@@ -45,7 +45,5 @@ public class ArrayListTest2 {
         // Aufgabe: Blatt 4
         // Umsetzung mit einer ArrayList
         // Inkl. Löschen von Elementen
-
-
     }
 }
