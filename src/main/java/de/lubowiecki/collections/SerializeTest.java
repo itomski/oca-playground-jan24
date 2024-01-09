@@ -79,6 +79,11 @@ public class SerializeTest {
 
         return list;
     }
+}
 
+// Wenn sich der VirtualMachine beschwert, dass Objekte nicht serialisiert werden können
+// macht man folgendes: implements Serializable
+
+class Person implements Serializable {
 
 }
