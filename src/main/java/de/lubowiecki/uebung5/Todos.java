@@ -7,5 +7,4 @@ public class Todos {
     // Jedes Todo wird mit Titel und Datum in einer ArrayList abgelegt
     // Beim verlassen des Programms wird die ArrayList gespeichert
     // Beim Starten des Programms werden die Altdaten eingelesen und angezeigt
-    // Dies und das
 }
