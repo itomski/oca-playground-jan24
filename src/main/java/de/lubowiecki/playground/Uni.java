@@ -1,4 +1,4 @@
-package de.lubowiecki.vererbung;
+package de.lubowiecki.playground;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ public class Uni {
     public static void main(String[] args) {
 
         //Lebewesen l1 = new Mensch();
-        Lebewesen l1 = new Student();
+        Lebewesen l1 = new Student2();
         Lebewesen l2 = l1; // l2 ist eine zweite Referenz auf Mensch
         l1 = new Hund(); // Hund ist auch ein Lebewesen
 
@@ -20,8 +20,8 @@ public class Uni {
 
         List<Lebewesen> lebewesenList = new ArrayList<>();
         //lebewesenList.add(new Mensch()); // Instanzen können nicht aus abstrakten Klassen gebildet werden
-        lebewesenList.add(new Student());
-        lebewesenList.add(new Student());
+        lebewesenList.add(new Student2());
+        lebewesenList.add(new Student2());
         lebewesenList.add(new Fisch());
         lebewesenList.add(new Fisch());
         lebewesenList.add(new Hund());
@@ -42,7 +42,7 @@ interface Lebewesen {
 
 }
 
-abstract class Mensch implements Lebewesen {
+abstract class Mensch2 implements Lebewesen {
 
 
     @Override
@@ -55,7 +55,7 @@ abstract class Mensch implements Lebewesen {
     abstract void sagHallo();
 }
 
-class Student extends Mensch  {
+class Student2 extends Mensch2  {
 
     @Override
     public void fortbewegung() {
