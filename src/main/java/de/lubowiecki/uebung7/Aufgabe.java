@@ -1,4 +1,4 @@
-package uebung7;
+package de.lubowiecki.uebung7;
 
 public class Aufgabe {
 
