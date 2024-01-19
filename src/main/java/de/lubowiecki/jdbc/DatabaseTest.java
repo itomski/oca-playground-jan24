@@ -3,6 +3,7 @@ package de.lubowiecki.jdbc;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class DatabaseTest {
 
@@ -26,7 +27,16 @@ public class DatabaseTest {
 
         try {
             createTable();
-            List<String> data = getData();
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Vorname: ");
+            String firstname = scanner.nextLine();
+            System.out.print("Nachname: ");
+            String lastname = scanner.nextLine();
+
+            save(new User(firstname, lastname));
+
+            List<User> data = getData();
             System.out.println(data);
         }
         catch(SQLException e) {
@@ -48,24 +58,47 @@ public class DatabaseTest {
         runStatement(sql);
     }
 
-    private static List<String> getData() throws SQLException {
+    private static List<User> getData() throws SQLException {
 
         final String sql  = "SELECT * FROM users";
 
         try(Connection con = DriverManager.getConnection(DB_URL);
             Statement stmt = con.createStatement()) {
-            stmt.execute(sql);
-            return mapToUser(stmt.getResultSet());
+            //stmt.execute(sql);
+            //return mapToUser(stmt.getResultSet());
+            return mapToUser(stmt.executeQuery(sql)); // executeQuery liefert ein ResultSet zurück
+
+            // stmt.close();
+            // con.close();
         }
     }
 
-    private static List<String> mapToUser(ResultSet rs) throws SQLException {
+    private static boolean save(User user) throws SQLException {
 
-        List<String> vornamen = new ArrayList<>();
-        while(rs.next()) {
-            vornamen.add(rs.getString("firstname"));
+        final String sql  = "INSERT INTO users (id, firstname, lastname) " +
+                                "VALUES(NULL, '" + user.getFirstname() + "', '" + user.getLastname() + "')";
+
+        try(Connection con = DriverManager.getConnection(DB_URL);
+            Statement stmt = con.createStatement()) {
+            //stmt.execute(sql);
+            //return stmt.getUpdateCount() > 0;
+            return stmt.executeUpdate(sql) > 0; // executeUpdate liefert ein Zahl zurück
         }
-        return vornamen;
+    }
+
+    // ORM - Objekt-Relationales-Mapping
+    private static List<User> mapToUser(ResultSet rs) throws SQLException {
+
+        List<User> users = new ArrayList<>();
+        while(rs.next()) {
+            User user = new User(
+                rs.getInt("id"),
+                rs.getString("firstname"),
+                rs.getString("lastname")
+            );
+            users.add(user);
+        }
+        return users;
     }
 
     private static void runStatement(final String sql) throws SQLException {
