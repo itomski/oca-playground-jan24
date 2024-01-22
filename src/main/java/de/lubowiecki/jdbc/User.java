@@ -40,6 +40,10 @@ public class User {
         this.lastname = lastname;
     }
 
+    void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
