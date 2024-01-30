@@ -24,6 +24,11 @@ public class BuilderTest {
         System.out.println(v3.getBrand() + ", " + v3.getType() + ", " + v3.getRegistration());
 
 
-    }
+        Vehicle v4 = FordFactory.getMustang("HB:XY235");
+        System.out.println(v4.getBrand() + ", " + v4.getType() + ", " + v4.getRegistration());
 
+        String s = String.join("-", "A", "B", "C", "D");
+        System.out.println(s);
+
+    }
 }
