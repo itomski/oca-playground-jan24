@@ -28,6 +28,9 @@ public class GenericTest1 {
 
         // extends ist Number oder eine Kindklasse davon
         List<? extends Number> zahlen2 = new ArrayList<Integer>();
+
+        int[][] arr = new int[2][]; // {null, null}
+
     }
 
     public static <T extends CharSequence> void machWas(T val) {
