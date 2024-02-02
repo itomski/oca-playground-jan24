@@ -1,7 +1,6 @@
 package de.lubowiecki.collections;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class QueueTest {
 
@@ -41,9 +40,47 @@ public class QueueTest {
         }
 
         System.out.println(zahlen);
+
+        System.out.println();
+
+        // Als Stack (LIFO)
+        Deque<String> namen = new LinkedList<>();
+        namen.push("Peter");
+        namen.push("Bruce");
+        namen.push("Natasha");
+        namen.push("Carol");
+        namen.push("Tony");
+
+        while(!namen.isEmpty()) {
+            System.out.println(namen.pop());
+        }
+
+        System.out.println();
+
+        Queue<String> namenStack = Collections.asLifoQueue(namen);
+        namenStack.offer("Peter");
+        namenStack.offer("Bruce");
+        namenStack.offer("Natasha");
+        namenStack.offer("Carol");
+        namenStack.offer("Scott");
+
+        while(!namenStack.isEmpty()) {
+            System.out.println(namenStack.poll());
+        }
+
+        System.out.println();
+
+        namenStack.offer("Peter");
+        namenStack.offer("Bruce");
+        namenStack.offer("Natasha");
+        namenStack.offer("Carol");
+        namenStack.offer("Scott");
+
+        // für ein Return
+        Collection<String> collection = Collections.unmodifiableCollection(namenStack);
+        // collection.remove("Carol"); // UnsupportedOperationException
+
     }
-
-
 }
 
 
