@@ -3,10 +3,7 @@ package de.lubowiecki.collections;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class MapTest1 {
 
@@ -45,6 +42,8 @@ public class MapTest1 {
         System.out.println();
 
         //Map<LocalDate, Map<LocalTime, List<Termin>>> termine;
+
+        Arrays.sort(new int[]{1,2,3,4,8,7,1,0});
 
     }
 }
