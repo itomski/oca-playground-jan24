@@ -1,4 +1,4 @@
-package de.lubowiecki.designpatters.builder;
+package de.lubowiecki.designpatterns.builder;
 
 public class FordFactory {
 
