@@ -1,6 +1,8 @@
 package de.lubowiecki.designpatterns.observer;
 
-public class Aktie {
+import java.util.Observable;
+
+public class Aktie extends Observable {
 
     private final String name;
 
@@ -22,5 +24,7 @@ public class Aktie {
     public void changePreis(double prozent) {
         this.preis = preis + (preis * prozent);
         System.out.printf("%s: Neuer Preis %.4f € \n", name, preis);
+        setChanged();
+        notifyObservers();
     }
 }
